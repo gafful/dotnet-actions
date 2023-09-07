@@ -22,12 +22,14 @@ jobs:
         dotnet-version: 7.0.x
     - name: Restore dependencies
       run: dotnet restore
-    - name: Build
+    - name: Build solution
       run: dotnet build --no-restore
-    - name: Test
+    - name: Test solution
       run: dotnet test --no-build --verbosity normal
-    - name: Publish
+    - name: Publish Konssole artifact for Linux x64 architecture
       run: dotnet publish --self-contained -c Release -r linux-x64 /p:PublishSingleFile=true konssole
+    - name: Publish Konssole artifact for MacOS arm64 architecture
+      run: dotnet publish --self-contained -c Release -r osx-arm64 /p:PublishSingleFile=true konssole
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
