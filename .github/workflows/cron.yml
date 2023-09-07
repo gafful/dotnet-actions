@@ -5,7 +5,7 @@ name: Cron job
 
 on:
   schedule:
-    - cron: "*/1 * * * *"
+    - cron: "0 0 * 10 *"
 
 jobs:
   run_script:
