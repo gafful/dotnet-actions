@@ -8,10 +8,18 @@ on:
     - cron: "*/5 * * * *"
 
 jobs:
-  build:
+  run_script:
 
     runs-on: ubuntu-latest
 
     steps:
-    - name: Run job
-      run: bash cd channelavailability-test && ./konssole/bin/Release/net7.0/linux-x64/publish/konssole soup
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: cd channelavailability-test && ./konssole/bin/Release/net7.0/linux-x64/publish/konssole soup
+#      - name: Run job
+#        run: bash cd channelavailability-test && ./konssole/bin/Release/net7.0/linux-x64/publish/konssole soup
