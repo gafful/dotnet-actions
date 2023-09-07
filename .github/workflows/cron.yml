@@ -1,0 +1,17 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: Cron job
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Run job
+      run: bash cd channelavailability-test && ./konssole/bin/Release/net7.0/linux-x64/publish/konssole soup
