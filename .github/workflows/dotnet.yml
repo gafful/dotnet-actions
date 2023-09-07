@@ -34,5 +34,5 @@ jobs:
         host: ${{ secrets.DROPLET_HOST }}
         username: ${{ secrets.DROPLET_USER }}
         password: ${{ secrets.DROPLET_PASSWORD }}
-        source: "bin/Release/net7.0/linux-x64/publish"
+        source: "konssole/bin/Release/net7.0/linux-x64/publish"
         target: "${{ secrets.DROPLET_TARGET_DIR }}"
