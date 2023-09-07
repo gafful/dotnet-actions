@@ -27,7 +27,7 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Publish
-      run: dotnet publish --no-build --no-restore -c Release -r linux-x64 /p:PublishSingleFile=true
+      run: dotnet publish -c Release -r linux-x64 /p:PublishSingleFile=true
     - name: Deploy to droplet
       uses: appleboy/scp-action@master
       with:
