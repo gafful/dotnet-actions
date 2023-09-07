@@ -35,6 +35,6 @@ jobs:
         with:
           host: ${{ secrets.DROPLET_HOST }}
           username: ${{ secrets.DROPLET_USER }}
-          key: ${{ secrets.DROPLET_SSH_PRIVATE_KEY }}
-          source: "bin/Release/netcoreapp3.1/linux-x64/publish"
+          password: ${{ secrets.DROPLET_PASSWORD }}
+          source: "bin/Release/net7.0/linux-x64/publish"
           target: "${{ secrets.DROPLET_TARGET_DIR }}"
