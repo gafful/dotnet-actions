@@ -28,6 +28,11 @@ jobs:
       run: dotnet test --no-build --verbosity normal
     - name: Publish
       run: dotnet publish --self-contained -c Release -r linux-x64 /p:PublishSingleFile=true konssole
+    - name: Upload output file
+      uses: actions/upload-artifact@v3
+      with:
+        name: konssole-linux-x64
+        path: konssole/bin/Release/net7.0/linux-x64/publish/konssole
     - name: Deploy to droplet
       uses: appleboy/scp-action@master
       with:
