@@ -8,20 +8,19 @@ namespace Konssole
 {
     internal static class Program
     {
-        private static int Main(string[] args)
+        private static async Task<int> Main(string[] args)
         {
             if (args[0] == "soup")
                 Console.WriteLine("not Not");
 
             Product product = new Product
             {
-                Name = "Goo Hul",
+                Name = args[0],
                 Expiry = new DateTime(2008, 12, 28),
                 Sizes = new string[] { "Small" }
             };
 
-            string json = JsonConvert.SerializeObject(product);
-            Console.WriteLine($"Wee-here...!: {json}");
+            await File.WriteAllTextAsync($"{DateTime.Now:yyyy-MM-dd-HH-mm-ss}.json", JsonConvert.SerializeObject(product, Formatting.Indented));
             return 0;
         }
     }
